@@ -298,7 +298,7 @@ const UploadDocuments = ({ data, onUpdate, onNext, onBack }) => {
         
         <div className="mac-progress-bar">
           <div 
-            className="progress-fill required"
+            className={`progress-fill required ${getRequiredProgress() === 100 ? 'complete' : ''}`}
             style={{ width: `${(getRequiredProgress() / 100) * 40}%` }}
           />
           <div 
@@ -313,7 +313,7 @@ const UploadDocuments = ({ data, onUpdate, onNext, onBack }) => {
 
         <div className="progress-legend">
           <div className="legend-item">
-            <span className="legend-dot required"></span>
+            <span className={`legend-dot required ${getRequiredProgress() === 100 ? 'complete' : ''}`}></span>
             <span>Required ({getRequiredDocuments().filter(doc => isDocumentUploaded(doc.id)).length}/{getRequiredDocuments().length})</span>
           </div>
           <div className="legend-item">
@@ -360,7 +360,7 @@ const UploadDocuments = ({ data, onUpdate, onNext, onBack }) => {
             <span className="warning-text"> {getRequiredDocuments().length - getRequiredDocuments().filter(doc => isDocumentUploaded(doc.id)).length} required documents remaining</span>
           )}
           {getRequiredProgress() === 100 && (
-            <span className="success-text"> All required documents uploaded</span>
+            <span className="success-text"> ✓ All required documents uploaded - You can now continue!</span>
           )}
         </div>
       </div>
@@ -488,6 +488,8 @@ const UploadDocuments = ({ data, onUpdate, onNext, onBack }) => {
         <button 
           onClick={handleNext} 
           className="next-btn"
+          disabled={getRequiredProgress() < 100}
+          title={getRequiredProgress() < 100 ? 'Please upload all required documents to continue' : ''}
         >
           Next
         </button>

@@ -54,6 +54,10 @@
   background: #ff3b30;
 }
 
+.progress-fill.required.complete {
+  background: #10b981;
+}
+
 .progress-fill.recommended {
   background: #ff9500;
 }
@@ -97,6 +101,10 @@
 
 .legend-dot.required {
   background: #ff3b30;
+}
+
+.legend-dot.required.complete {
+  background: #10b981;
 }
 
 .legend-dot.recommended {
@@ -627,11 +635,17 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.next-btn:hover {
+.next-btn:hover:not(:disabled) {
   background-color: #3ca797;
+}
+
+.next-btn:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Page Title & Subtitle - Consistent */
