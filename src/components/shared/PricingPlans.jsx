@@ -1,7 +1,7 @@
 import React from 'react';
 import './PricingPlans.css';
 
-const PricingPlans = ({ onSelectPlan, onLogoClick }) => {
+const PricingPlans = ({ onSelectPlan, onLogoClick, onBack }) => {
   const handleBasePlan = () => {
     onSelectPlan('base');
   };
@@ -82,6 +82,12 @@ const PricingPlans = ({ onSelectPlan, onLogoClick }) => {
 
         <div className="partnership-link">
           Looking for partnership? <a href="#" className="link">Click Here</a>
+        </div>
+
+        <div className="navigation-buttons">
+          <button onClick={onBack} className="back-btn">
+            Back
+          </button>
         </div>
       </div>
     </div>

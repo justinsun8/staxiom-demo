@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './EstimationResults.css';
 
-const EstimationResults = ({ formData, onAssignToAccount, onNext, onLogoClick }) => {
+const EstimationResults = ({ formData, onAssignToAccount, onNext, onBack, onLogoClick }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
   // Calculate estimated R&D tax credit based on form data
@@ -141,13 +141,18 @@ const EstimationResults = ({ formData, onAssignToAccount, onNext, onLogoClick })
           </div>
 
           <div className="action-buttons">
-            <button onClick={onAssignToAccount} className="assign-btn">
-              Assign to your Accountant
+            <button onClick={onBack} className="back-btn">
+              Back
             </button>
-            <span className="or-text">or</span>
-            <button onClick={onNext} className="next-btn">
-              Next
-            </button>
+            <div className="right-actions">
+              <button onClick={onAssignToAccount} className="assign-btn">
+                Assign to your Accountant
+              </button>
+              <span className="or-text">or</span>
+              <button onClick={onNext} className="next-btn">
+                Next
+              </button>
+            </div>
           </div>
         </div>
           </>

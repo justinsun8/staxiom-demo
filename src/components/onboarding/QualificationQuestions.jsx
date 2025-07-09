@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './QualificationQuestions.css';
 
-const QualificationQuestions = ({ data, onUpdate, onNext }) => {
+const QualificationQuestions = ({ data, onUpdate, onNext, onBack }) => {
   const [formData, setFormData] = useState({
     hasGeneratedProfit: data.hasGeneratedProfit || ''
   });
@@ -59,6 +59,11 @@ const QualificationQuestions = ({ data, onUpdate, onNext }) => {
       </div>
 
       <div className="action-buttons">
+        {onBack && (
+          <button onClick={onBack} className="back-btn">
+            Back to Pricing
+          </button>
+        )}
         <button 
           onClick={handleNext} 
           className="next-btn"

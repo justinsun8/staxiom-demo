@@ -293,6 +293,11 @@
   font-weight: 500;
 }
 
+.step.clickable:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
 .step-icon {
   width: 20px;
   height: 20px;

@@ -10,7 +10,7 @@ import DownloadReport from './DownloadReport';
 import { MoneyBagIcon, ChartIcon, DollarIcon, TrendingUpIcon } from '../shared/Icons';
 import './OnboardingFlow.css';
 
-const OnboardingFlow = ({ selectedPlan, initialEstimate, estimationData, onSubmit, onLogoClick }) => {
+const OnboardingFlow = ({ selectedPlan, initialEstimate, estimationData, onSubmit, onLogoClick, onBackToEstimation }) => {
   const [currentStep, setCurrentStep] = useState('qualification');
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -96,8 +96,18 @@ const OnboardingFlow = ({ selectedPlan, initialEstimate, estimationData, onSubmi
           <div className="onboarding-steps">
             {steps.map(step => {
               const status = getStepStatus(step.id);
+              const isClickable = status === 'completed' || status === 'active';
               return (
-                <div key={step.id} className={`step ${status}`}>
+                <div 
+                  key={step.id} 
+                  className={`step ${status} ${isClickable ? 'clickable' : ''}`}
+                  onClick={() => {
+                    if (isClickable && step.id !== 'download') {
+                      setCurrentStep(step.id);
+                    }
+                  }}
+                  style={{ cursor: isClickable ? 'pointer' : 'default' }}
+                >
                   <span className="step-icon">
                     {status === 'completed' ? '✓' : '○'}
                   </span>
@@ -115,6 +125,7 @@ const OnboardingFlow = ({ selectedPlan, initialEstimate, estimationData, onSubmi
             data={onboardingData.qualification}
             onUpdate={(data) => updateData('qualification', data)}
             onNext={handleNext}
+            onBack={onBackToEstimation}
           />
         )}
 

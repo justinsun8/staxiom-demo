@@ -25,6 +25,16 @@ const EstimationFlow = ({ onLogoClick }) => {
     // Add more steps as needed
   };
 
+  const handleBack = () => {
+    if (currentStep === 'results') {
+      setCurrentStep('companyInfo');
+    } else if (currentStep === 'pricing') {
+      setCurrentStep('results');
+    } else if (currentStep === 'onboarding') {
+      setCurrentStep('pricing');
+    }
+  };
+
   const handleAssignToAccount = () => {
     // Handle assign to accountant logic
     console.log('Assigning to accountant...');
@@ -51,6 +61,7 @@ const EstimationFlow = ({ onLogoClick }) => {
           formData={formData}
           onAssignToAccount={handleAssignToAccount}
           onLogoClick={onLogoClick}
+          onBack={handleBack}
           onNext={() => {
             // Calculate credit amount based on form data
             const { numberOfEmployees, avgSalary } = formData;
@@ -68,6 +79,7 @@ const EstimationFlow = ({ onLogoClick }) => {
         <PricingPlans 
           onSelectPlan={handleSelectPlan}
           onLogoClick={onLogoClick}
+          onBack={handleBack}
         />
       )}
       
@@ -81,6 +93,7 @@ const EstimationFlow = ({ onLogoClick }) => {
             console.log('Onboarding completed with data:', data);
           }}
           onLogoClick={onLogoClick}
+          onBackToEstimation={handleBack}
         />
       )}
     </div>
