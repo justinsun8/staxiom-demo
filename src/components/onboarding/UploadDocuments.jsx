@@ -59,34 +59,74 @@ const UploadDocuments = ({ data, onUpdate, onNext, onBack }) => {
 
   const handleFiles = async (files) => {
     // Process multiple files
+    const uploadPromises = [];
+    const isMultipleFiles = files.length > 1;
+    
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
       
-      // Find a matching document type across all categories
-      let matchingDoc = null;
-      let matchingCategory = null;
+      // Find all matching document types across all categories
+      const matchingDocs = [];
       
       Object.entries(documentTypes).forEach(([catKey, category]) => {
         category.documents.forEach(doc => {
           if (doc.acceptedFormats.includes(fileExtension)) {
-            if (!matchingDoc) {
-              matchingDoc = doc;
-              matchingCategory = category;
-            }
+            matchingDocs.push({ doc, category });
           }
         });
       });
 
-      if (matchingDoc) {
-        await uploadFileForDocument(file, matchingDoc, matchingCategory);
+      if (matchingDocs.length > 0) {
+        // If file matches multiple document types, try to match by filename
+        let bestMatch = matchingDocs[0];
+        
+        // Try to intelligently match based on filename
+        const filename = file.name.toLowerCase();
+        for (const match of matchingDocs) {
+          const docName = match.doc.name.toLowerCase();
+          const docId = match.doc.id.toLowerCase();
+          
+          // Check if filename contains keywords from document type
+          if (filename.includes('w-2') || filename.includes('w2')) {
+            if (docId.includes('w2')) {
+              bestMatch = match;
+              break;
+            }
+          } else if (filename.includes('tax') || filename.includes('1120') || filename.includes('1065')) {
+            if (docId.includes('tax')) {
+              bestMatch = match;
+              break;
+            }
+          } else if (filename.includes('payroll')) {
+            if (docId.includes('payroll')) {
+              bestMatch = match;
+              break;
+            }
+          }
+        }
+        
+        uploadPromises.push(uploadFileForDocument(file, bestMatch.doc, bestMatch.category, isMultipleFiles));
       } else {
         toast.error(`File type ${fileExtension} not supported for ${file.name}`);
       }
     }
+    
+    // Upload all files in parallel
+    const results = await Promise.allSettled(uploadPromises);
+    
+    // Show summary if multiple files
+    if (files.length > 1) {
+      const successCount = results.filter(r => r.status === 'fulfilled').length;
+      if (successCount === files.length) {
+        toast.success(`Successfully uploaded ${successCount} files`);
+      } else if (successCount > 0) {
+        toast.warning(`Uploaded ${successCount} of ${files.length} files`);
+      }
+    }
   };
 
-  const uploadFileForDocument = async (file, documentType, category) => {
+  const uploadFileForDocument = async (file, documentType, category, skipToast = false) => {
     try {
       setUploading(prev => ({ ...prev, [documentType.id]: true }));
 
@@ -102,11 +142,14 @@ const UploadDocuments = ({ data, onUpdate, onNext, onBack }) => {
           return updated;
         });
         
-        toast.success(`Uploaded ${file.name} to ${category.category}`);
+        // Only show individual toast if not uploading multiple files
+        if (!skipToast) {
+          toast.success(`Uploaded ${file.name}`);
+        }
         onUpdate({ uploadedFiles: uploadedFiles });
       }
     } catch (error) {
-      toast.error(`Upload failed: ${error.message}`);
+      toast.error(`Failed to upload ${file.name}: ${error.message}`);
     } finally {
       setUploading(prev => ({ ...prev, [documentType.id]: false }));
     }

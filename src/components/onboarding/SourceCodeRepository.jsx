@@ -170,7 +170,7 @@ const SourceCodeRepository = ({ data, onUpdate, onNext, onBack }) => {
             
             <form onSubmit={handleLogin} className="login-form">
               <div className="github-logo">
-                <img src="/images/logo_github.png" alt="GitHub" style={{ width: '48px' }} />
+                <img src="/images/logo_github.png" alt="GitHub" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
               </div>
               
               <div className="form-group">

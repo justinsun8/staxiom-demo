@@ -12,6 +12,9 @@
 .github-logo img {
   width: 48px;
   height: 48px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .login-form label {
