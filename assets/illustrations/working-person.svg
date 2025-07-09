@@ -1,0 +1,34 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background decorative elements -->
+  <circle cx="80" cy="50" r="3" fill="#5eead4" opacity="0.6"/>
+  <circle cx="320" cy="80" r="4" fill="#5eead4" opacity="0.5"/>
+  <circle cx="50" cy="150" r="2" fill="#5eead4" opacity="0.7"/>
+  <circle cx="350" cy="200" r="3" fill="#5eead4" opacity="0.6"/>
+  
+  <!-- Desk -->
+  <rect x="80" y="200" width="240" height="8" fill="#2b7873" opacity="0.8"/>
+  <rect x="90" y="208" width="8" height="60" fill="#2b7873" opacity="0.8"/>
+  <rect x="302" y="208" width="8" height="60" fill="#2b7873" opacity="0.8"/>
+  
+  <!-- Computer/Laptop -->
+  <rect x="140" y="170" width="120" height="30" rx="4" fill="#5eead4" opacity="0.9"/>
+  <rect x="145" y="175" width="110" height="20" rx="2" fill="#1a5e5a"/>
+  <rect x="190" y="200" width="20" height="8" fill="#2b7873" opacity="0.8"/>
+  
+  <!-- Chair -->
+  <path d="M220 180 Q240 175 260 180 L260 220 Q240 225 220 220 Z" fill="#2b7873" opacity="0.9"/>
+  <rect x="235" y="220" width="10" height="30" fill="#2b7873" opacity="0.8"/>
+  <ellipse cx="240" cy="255" rx="20" ry="5" fill="#2b7873" opacity="0.8"/>
+  
+  <!-- Person (simplified) -->
+  <circle cx="200" cy="120" r="20" fill="#5eead4" opacity="0.9"/>
+  <path d="M200 140 Q200 160 190 170 L210 170 Q200 160 200 140" fill="#5eead4" opacity="0.9"/>
+  <rect x="185" y="140" width="30" height="40" rx="8" fill="#2b7873" opacity="0.9"/>
+  <rect x="175" y="145" width="10" height="25" rx="5" fill="#5eead4" opacity="0.9"/>
+  <rect x="215" y="145" width="10" height="25" rx="5" fill="#5eead4" opacity="0.9"/>
+  
+  <!-- Background wavy pattern -->
+  <path d="M0 100 Q100 80 200 100 T400 100" stroke="#5eead4" stroke-width="2" opacity="0.2" fill="none"/>
+  <path d="M0 150 Q100 130 200 150 T400 150" stroke="#5eead4" stroke-width="2" opacity="0.15" fill="none"/>
+  <path d="M0 200 Q100 180 200 200 T400 200" stroke="#5eead4" stroke-width="2" opacity="0.1" fill="none"/>
+</svg>

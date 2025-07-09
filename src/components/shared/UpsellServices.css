@@ -1,0 +1,206 @@
+.upsell-services-container {
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.upsell-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.upsell-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.upsell-subtitle {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.service-card {
+  background: white;
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.service-card.expanded {
+  flex-direction: column;
+  text-align: left;
+}
+
+.service-card:hover {
+  border-color: #4db8a8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.service-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.service-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.service-details {
+  font-size: 15px;
+  color: #4db8a8;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  font-weight: 500;
+  background: #f0fffe;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid #4db8a8;
+}
+
+.service-cta {
+  background: #4db8a8;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-cta:hover {
+  background: #3ca797;
+  transform: translateX(4px);
+}
+
+.upsell-footer {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 16px;
+  color: #4db8a8;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.back-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  border-color: #999;
+  color: #333;
+}
+
+.finish-btn {
+  padding: 16px 40px;
+  background: #4db8a8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(77, 184, 168, 0.3);
+}
+
+.finish-btn:hover {
+  background: #3ca797;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(77, 184, 168, 0.4);
+}
+
+@media (max-width: 768px) {
+  .upsell-services-container {
+    padding: 20px;
+  }
+
+  .upsell-header h1 {
+    font-size: 24px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-icon {
+    font-size: 42px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .back-btn,
+  .finish-btn {
+    width: 100%;
+  }
+}

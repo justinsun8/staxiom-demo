@@ -1,0 +1,420 @@
+.download-report-container {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.download-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.download-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.download-subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.report-preview {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.preview-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.ready-badge {
+  background: #4db8a8;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.credit-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 32px 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  gap: 24px;
+}
+
+.credit-item {
+  text-align: center;
+  flex: 1;
+}
+
+.credit-item.initial {
+  opacity: 0.7;
+}
+
+.credit-arrow {
+  font-size: 32px;
+  color: #4db8a8;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.credit-label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.credit-value {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.credit-value.estimate {
+  color: #999;
+  text-decoration: line-through;
+  text-decoration-color: rgba(153, 153, 153, 0.5);
+}
+
+.credit-value.final {
+  color: #4db8a8;
+  font-size: 42px;
+}
+
+.credit-increase {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #4db8a8;
+  font-weight: 600;
+}
+
+.report-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.detail-value.ready {
+  color: #4db8a8;
+}
+
+.report-includes {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.report-includes h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.report-includes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.report-includes li {
+  padding: 8px 0;
+  color: #666;
+  font-size: 15px;
+}
+
+/* Download Action inside Report */
+.download-action {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.download-btn-primary {
+  padding: 16px 48px;
+  background: #4db8a8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(77, 184, 168, 0.25);
+}
+
+.download-btn-primary:hover {
+  background: #3ca797;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(77, 184, 168, 0.35);
+}
+
+.download-btn-primary .download-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Recommendations Section */
+.recommendations-section {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 2px solid #e5e5e5;
+}
+
+.recommendations-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.recommendations-subtitle {
+  font-size: 17px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.recommendation-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.recommendation-card {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  transition: all 0.2s ease;
+}
+
+.recommendation-card:hover {
+  border-color: #4db8a8;
+  background: #f0fffe;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.rec-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f5f3;
+  border-radius: 12px;
+  color: #4db8a8;
+}
+
+.rec-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.rec-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rec-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.rec-insight {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.rec-impact {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4db8a8;
+  background: #e8f5f3;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 16px;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.rec-cta {
+  background: transparent;
+  border: 2px solid #4db8a8;
+  color: #4db8a8;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+.rec-cta:hover {
+  background: #4db8a8;
+  color: white;
+  transform: translateX(2px);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.back-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  border-color: #999;
+  color: #333;
+}
+
+.primary-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.continue-btn {
+  padding: 16px 40px;
+  background: transparent;
+  color: #4db8a8;
+  border: 2px solid #4db8a8;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.continue-btn:hover {
+  background: #4db8a8;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(77, 184, 168, 0.2);
+}
+
+@media (max-width: 768px) {
+  .download-report-container {
+    padding: 20px;
+  }
+
+  .download-header h1 {
+    font-size: 24px;
+  }
+  
+  .credit-comparison {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .credit-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .recommendation-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .rec-icon {
+    font-size: 48px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .back-btn,
+  .continue-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

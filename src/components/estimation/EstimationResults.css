@@ -1,0 +1,373 @@
+/* Estimation Results Container */
+.estimation-container {
+  display: flex;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Sidebar Styles */
+.estimation-sidebar {
+  width: 380px;
+  background-color: #1a5f5f;
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+
+.logo img {
+  filter: brightness(0) invert(1);
+  height: 32px;
+  width: auto;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.estimation-steps {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  opacity: 0.6;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.step:hover {
+  opacity: 0.8;
+}
+
+.step.active,
+.step.completed {
+  opacity: 1;
+}
+
+.step.active {
+  font-weight: 500;
+}
+
+.step-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  background: transparent;
+  z-index: 2;
+}
+
+.step.completed .step-icon {
+  background-color: #f4c430;
+  color: #1a5f5f;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.step.active .step-icon {
+  border: 2px solid #f4c430;
+  border-radius: 50%;
+  background: #1a5f5f;
+}
+
+.step:not(.active):not(.completed) .step-icon {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+/* Vertical line connecting steps */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 28px;
+  width: 2px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.step.completed:not(:last-child)::after {
+  background: #f4c430;
+}
+
+/* Content Area */
+.estimation-content {
+  flex: 1;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 40px;
+  overflow-y: auto;
+}
+
+.results-container {
+  background: white;
+  padding: 60px 80px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Loading State Styles */
+.loading-state {
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.loading-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.loading-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.loading-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.progress-container {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4db8a8;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4db8a8;
+  min-width: 45px;
+}
+
+/* Results Content */
+.results-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.credit-amount {
+  font-size: 20px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.amount {
+  color: #4db8a8;
+  font-size: 32px;
+  font-weight: 700;
+  display: block;
+  margin: 16px 0;
+}
+
+.next-steps {
+  margin-bottom: 40px;
+}
+
+.steps-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.step-item:hover {
+  background: #f0f1f3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.step-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: #e8f5f3;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.step-content p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.assign-btn {
+  padding: 16px 40px;
+  background-color: transparent;
+  color: #0066cc;
+  border: 2px solid #0066cc;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.assign-btn:hover {
+  background-color: #0066cc;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.or-text {
+  color: #999;
+  font-size: 16px;
+}
+
+.next-btn {
+  padding: 16px 40px;
+  background-color: #4db8a8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(77, 184, 168, 0.2);
+}
+
+.next-btn:hover {
+  background-color: #3ca797;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(77, 184, 168, 0.3);
+}
+
+@media (max-width: 768px) {
+  .estimation-container {
+    flex-direction: column;
+  }
+  
+  .estimation-sidebar {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  
+  .estimation-content {
+    padding: 30px 20px;
+  }
+  
+  .results-container {
+    padding: 30px;
+  }
+  
+  .results-title {
+    font-size: 28px;
+  }
+  
+  .credit-amount {
+    font-size: 16px;
+  }
+  
+  .amount {
+    font-size: 20px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .assign-btn,
+  .next-btn {
+    width: 100%;
+  }
+  
+  .or-text {
+    margin: 10px 0;
+  }
+}

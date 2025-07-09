@@ -1,0 +1,272 @@
+.signin-container {
+  display: flex;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.signin-left {
+  flex: 0 0 40%;
+  background-color: #1a5f5f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 60px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.logo-section {
+  margin-bottom: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  filter: brightness(0) invert(1);
+  height: 40px;
+  width: auto;
+}
+
+.facts-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.facts-title {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  position: relative;
+  letter-spacing: -1px;
+}
+
+.facts-title::before {
+  content: '"';
+  position: absolute;
+  left: -50px;
+  top: -30px;
+  font-size: 150px;
+  opacity: 0.15;
+  font-family: Georgia, serif;
+}
+
+.facts-text {
+  font-size: 20px;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 420px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dots decoration */
+.dots-decoration {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  grid-template-columns: repeat(6, 8px);
+  grid-template-rows: repeat(6, 8px);
+  gap: 8px;
+  opacity: 0.2;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.signin-right {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.signin-form-container {
+  width: 100%;
+  max-width: 440px;
+  padding: 0 20px;
+}
+
+.signin-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.google-signin-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.google-signin-btn:hover {
+  background: #f8f8f8;
+  border-color: #d0d0d0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.divider {
+  text-align: center;
+  color: #999;
+  margin: 28px 0;
+  font-size: 14px;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #e5e5e5;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  background: #fafafa;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4db8a8;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(77, 184, 168, 0.1);
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.signin-btn {
+  padding: 14px 20px;
+  background-color: #4db8a8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+  box-shadow: 0 2px 4px rgba(77, 184, 168, 0.2);
+}
+
+.signin-btn:hover {
+  background-color: #3ca797;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(77, 184, 168, 0.3);
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 32px;
+  color: #666;
+  font-size: 15px;
+}
+
+.register-link {
+  color: #4db8a8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Corner decoration */
+.corner-decoration {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1024px) {
+  .signin-left {
+    flex: 0 0 35%;
+    padding: 40px;
+  }
+  
+  .facts-title {
+    font-size: 36px;
+  }
+  
+  .facts-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .signin-container {
+    flex-direction: column;
+  }
+  
+  .signin-left {
+    flex: none;
+    padding: 40px 30px;
+    min-height: 300px;
+  }
+  
+  .signin-form-container {
+    padding: 40px 30px;
+  }
+}

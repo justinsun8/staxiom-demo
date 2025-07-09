@@ -1,0 +1,287 @@
+.payroll-provider-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.provider-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.provider-card:hover {
+  border-color: #4db8a8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.provider-card.selected {
+  border-color: #4db8a8;
+  background-color: #f0f9f7;
+}
+
+.provider-card.connected {
+  border-color: #4db8a8;
+}
+
+.connection-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #4db8a8;
+  color: white;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom-left-radius: 8px;
+}
+
+.provider-logo {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.provider-logo img {
+  max-height: 40px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.provider-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.more-providers {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.more-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-btn,
+.skip-btn {
+  padding: 14px 32px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover,
+.skip-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+.skip-btn {
+  color: #4db8a8;
+  border-color: #4db8a8;
+}
+
+.skip-btn:hover {
+  background-color: #f0f9f7;
+}
+
+/* Login Popup */
+.login-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.login-popup {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0;
+}
+
+.popup-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #999;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.login-form {
+  padding: 24px;
+}
+
+.gusto-logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.gusto-logo img {
+  width: 120px;
+  height: auto;
+}
+
+.login-form .form-group {
+  margin-bottom: 16px;
+}
+
+.login-form .form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.login-form .form-input:focus {
+  outline: none;
+  border-color: #ff6d3f;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #ff6d3f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 24px;
+}
+
+.login-btn:hover {
+  background-color: #e5582f;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #666;
+}
+
+.login-footer a {
+  color: #ff6d3f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .providers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .provider-card {
+    padding: 30px 15px;
+    min-height: 140px;
+  }
+  
+  .action-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .back-btn {
+    order: 2;
+    flex: 1;
+  }
+  
+  .skip-btn {
+    order: 3;
+    flex: 1;
+  }
+  
+  .next-btn {
+    order: 1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .providers-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug</title>
+</head>
+<body>
+    <h1>Debug Page</h1>
+    <p>If you see this, the server is working.</p>
+    <script>
+        console.log('Debug page loaded');
+        
+        // Check if React app is loading
+        fetch('/index.jsx')
+            .then(res => res.text())
+            .then(text => console.log('index.jsx loaded:', text.substring(0, 100)))
+            .catch(err => console.error('Error loading index.jsx:', err));
+    </script>
+</body>
+</html>
