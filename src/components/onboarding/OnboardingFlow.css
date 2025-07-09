@@ -51,6 +51,22 @@
   overflow-y: auto;
 }
 
+/* Full width layout for download page */
+.onboarding-container.no-sidebar {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.onboarding-content.full-width {
+  max-width: 100%;
+  padding: 0;
+  background-color: white;
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .step-placeholder {
   background: white;
   padding: 60px 80px;

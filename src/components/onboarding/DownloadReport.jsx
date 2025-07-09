@@ -3,7 +3,7 @@ import { useToast } from '../../contexts/ToastContext';
 import { DownloadIcon, BuildingIcon, CreditCardIcon, ChartIcon, BankIcon } from '../shared/Icons';
 import './DownloadReport.css';
 
-const DownloadReport = ({ data, onNext, onBack }) => {
+const DownloadReport = ({ data, onNext, onBack, isLastStep }) => {
   const toast = useToast();
   // Get the initial estimate from the estimation phase
   const getInitialEstimate = () => {
@@ -49,43 +49,49 @@ const DownloadReport = ({ data, onNext, onBack }) => {
         id: 'entity-structure',
         icon: BuildingIcon,
         title: 'Entity Structure Optimization',
-        insight: `We see you're an ${companyType}. Based on your company size and R&D activities, converting to a C-Corp could increase your eligible R&D credits by up to 25% and provide additional tax advantages.`,
+        description: 'We see you\'re an LLC. Based on your company size and R&D activities, converting to a C-Corp could increase your eligible R&D credits by up to 25% and provide additional tax advantages.',
         impact: 'Potential additional savings: $15,000-$25,000/year',
-        cta: 'Learn More'
+        cta: 'Learn More →',
+        action: () => toast.info('Entity structure consultation scheduled')
       });
     }
     
-    // Payroll optimization
-    if (employees > 10) {
+    // Payroll tax credit application
+    if (!hasPayroll || employees < 100) {
       recommendations.push({
-        id: 'payroll-credits',
-        icon: CreditCardIcon,
+        id: 'payroll-credit',
+        icon: BankIcon,
         title: 'Payroll Tax Credit Application',
-        insight: 'With ' + employees + ' employees, you can apply up to $500,000 of R&D credits against payroll taxes, improving your immediate cash flow instead of waiting for income tax returns.',
+        description: 'With 50 employees, you can apply up to $500,000 of R&D credits against payroll taxes, improving your immediate cash flow instead of waiting for income tax returns.',
         impact: 'Immediate cash benefit available',
-        cta: 'See How'
+        cta: 'See How →',
+        action: () => toast.info('Payroll credit application process started')
       });
     }
     
-    // Multi-year opportunity
+    // Multi-year recovery
     recommendations.push({
       id: 'multi-year',
       icon: ChartIcon,
       title: 'Multi-Year Credit Recovery',
-      insight: 'Our analysis indicates you may have unclaimed R&D credits from the past 3 years. Many companies miss 30-40% of eligible expenses.',
+      description: 'Our analysis indicates you may have unclaimed R&D credits from the past 3 years. Many companies miss 30-40% of eligible expenses.',
       impact: 'Potential recovery: $50,000-$150,000',
-      cta: 'Calculate Recovery'
+      cta: 'Calculate Recovery →',
+      action: () => toast.info('Multi-year analysis scheduled')
     });
     
-    // State credits
-    recommendations.push({
-      id: 'state-credits',
-      icon: BankIcon,
-      title: 'State-Level R&D Credits',
-      insight: 'In addition to federal credits, your state offers R&D tax incentives that could provide up to 10% additional credit on qualified expenses.',
-      impact: 'Additional state savings available',
-      cta: 'Check Eligibility'
-    });
+    // State R&D credits
+    if (data?.companyDetails?.state === 'CA' || !data?.companyDetails?.state) {
+      recommendations.push({
+        id: 'state-credits',
+        icon: CreditCardIcon,
+        title: 'California R&D Tax Credits',
+        description: 'California offers additional R&D tax credits that can be combined with federal credits. The state credit rate is 15% for qualified research.',
+        impact: 'Additional state savings: $10,000-$20,000',
+        cta: 'Explore State Credits →',
+        action: () => toast.info('State credit analysis initiated')
+      });
+    }
     
     return recommendations.slice(0, 3); // Return top 3 most relevant
   };
@@ -106,7 +112,18 @@ const DownloadReport = ({ data, onNext, onBack }) => {
 
 
   return (
-    <div className="download-report-container">
+    <div className={`download-report-container ${isLastStep ? 'full-page' : ''}`}>
+      {/* Staxiom Logo */}
+      {isLastStep && (
+        <div className="download-logo">
+          <img 
+            src="https://cdn.prod.website-files.com/679ef02de8b79a9716efc818/679f281372adefd0878d72fe_staxiom-logo.svg" 
+            alt="Staxiom" 
+            style={{height: '40px', width: 'auto'}} 
+          />
+        </div>
+      )}
+
       <div className="download-header">
         <h1>Your R&D Tax Credit Report is Ready!</h1>
         <p className="download-subtitle">
@@ -163,13 +180,6 @@ const DownloadReport = ({ data, onNext, onBack }) => {
               <li>✓ Next steps and filing guidance</li>
             </ul>
           </div>
-          
-          <div className="download-action">
-            <button onClick={handleDownload} className="download-btn-primary">
-              <DownloadIcon className="download-icon" />
-              Download Report
-            </button>
-          </div>
         </div>
       </div>
 
@@ -187,13 +197,13 @@ const DownloadReport = ({ data, onNext, onBack }) => {
               </div>
               <div className="rec-content">
                 <h3>{rec.title}</h3>
-                <p className="rec-insight">{rec.insight}</p>
+                <p>{rec.description}</p>
                 <div className="rec-impact">{rec.impact}</div>
-                <button className="rec-cta" onClick={() => {
-                  console.log('Learn more about:', rec.id);
-                  toast.info(`We'll contact you about ${rec.title} within 24 hours.`);
-                }}>
-                  {rec.cta} →
+                <button 
+                  className="rec-cta" 
+                  onClick={rec.action}
+                >
+                  {rec.cta}
                 </button>
               </div>
             </div>
@@ -201,11 +211,21 @@ const DownloadReport = ({ data, onNext, onBack }) => {
         </div>
       </div>
 
+      {/* Download section moved to bottom */}
+      <div className="download-section">
+        <div className="download-action">
+          <button onClick={handleDownload} className="download-btn-primary">
+            <DownloadIcon className="download-icon" />
+            Download Report
+          </button>
+        </div>
+      </div>
+
       <div className="action-buttons">
         <button onClick={onBack} className="back-btn">
           Back
         </button>
-        <button onClick={onNext} className="continue-btn">
+        <button onClick={onNext} className="complete-btn">
           Complete Onboarding →
         </button>
       </div>

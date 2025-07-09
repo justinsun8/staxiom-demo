@@ -4,6 +4,41 @@
   margin: 0 auto;
 }
 
+.download-report-container.full-page {
+  max-width: 100%;
+  padding: 0;
+  background: #f8f9fa;
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
+  padding-bottom: 100px; /* Add padding at bottom for scrolling */
+}
+
+.download-report-container.full-page .download-header,
+.download-report-container.full-page .report-preview,
+.download-report-container.full-page .recommendations-section,
+.download-report-container.full-page .download-section,
+.download-report-container.full-page .action-buttons {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Logo styling for full page */
+.download-logo {
+  padding: 40px 0 20px 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.download-logo img {
+  height: 40px;
+  width: auto;
+  display: inline-block;
+}
+
 .download-header {
   text-align: center;
   margin-bottom: 40px;
@@ -185,6 +220,23 @@
   text-align: center;
 }
 
+/* Download section at bottom */
+.download-section {
+  margin-top: 48px;
+  padding: 32px 0;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.download-section .download-action {
+  margin-top: 0;
+}
+
+/* Hide download button inside report preview */
+.preview-content .download-action {
+  display: none;
+}
+
 .download-btn-primary {
   padding: 16px 48px;
   background: #4db8a8;
@@ -354,6 +406,23 @@
 .back-btn:hover {
   border-color: #999;
   color: #333;
+}
+
+.complete-btn {
+  padding: 12px 32px;
+  background: #4318ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.complete-btn:hover {
+  background: #3c0bdb;
+  transform: translateY(-1px);
 }
 
 .primary-actions {

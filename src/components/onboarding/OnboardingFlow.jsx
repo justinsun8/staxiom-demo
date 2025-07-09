@@ -79,33 +79,37 @@ const OnboardingFlow = ({ selectedPlan, initialEstimate, estimationData, onSubmi
     return 'pending';
   };
 
+  const hideNavigation = currentStep === 'download' && showDownload;
+
   return (
-    <div className="onboarding-container">
-      <div className="onboarding-sidebar">
-        <div className="logo" onClick={onLogoClick} style={{cursor: 'pointer'}}>
-          <img src="https://cdn.prod.website-files.com/679ef02de8b79a9716efc818/679f281372adefd0878d72fe_staxiom-logo.svg" alt="Staxiom" style={{height: '32px', width: 'auto'}} />
-        </div>
-        
-        <div className="onboarding-header">
-          <h2 className="sidebar-title">On-Boarding ({selectedPlan === 'pro' ? 'Pro Plan' : 'Base Plan'})</h2>
-        </div>
+    <div className={`onboarding-container ${hideNavigation ? 'no-sidebar' : ''}`}>
+      {!hideNavigation && (
+        <div className="onboarding-sidebar">
+          <div className="logo" onClick={onLogoClick} style={{cursor: 'pointer'}}>
+            <img src="https://cdn.prod.website-files.com/679ef02de8b79a9716efc818/679f281372adefd0878d72fe_staxiom-logo.svg" alt="Staxiom" style={{height: '32px', width: 'auto'}} />
+          </div>
+          
+          <div className="onboarding-header">
+            <h2 className="sidebar-title">On-Boarding ({selectedPlan === 'pro' ? 'Pro Plan' : 'Base Plan'})</h2>
+          </div>
 
-        <div className="onboarding-steps">
-          {steps.map(step => {
-            const status = getStepStatus(step.id);
-            return (
-              <div key={step.id} className={`step ${status}`}>
-                <span className="step-icon">
-                  {status === 'completed' ? '✓' : '○'}
-                </span>
-                <span className="step-text">{step.name}</span>
-              </div>
-            );
-          })}
+          <div className="onboarding-steps">
+            {steps.map(step => {
+              const status = getStepStatus(step.id);
+              return (
+                <div key={step.id} className={`step ${status}`}>
+                  <span className="step-icon">
+                    {status === 'completed' ? '✓' : '○'}
+                  </span>
+                  <span className="step-text">{step.name}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
-      <div className="onboarding-content">
+      <div className={`onboarding-content ${hideNavigation ? 'full-width' : ''}`}>
         {currentStep === 'qualification' && (
           <QualificationQuestions
             data={onboardingData.qualification}
@@ -244,6 +248,7 @@ const OnboardingFlow = ({ selectedPlan, initialEstimate, estimationData, onSubmi
         {currentStep === 'download' && showDownload && (
           <DownloadReport
             data={onboardingData}
+            isLastStep={true}
             onNext={() => {
               // Complete onboarding and return to login
               console.log('Onboarding completed!');
