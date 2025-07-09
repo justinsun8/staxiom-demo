@@ -44,16 +44,15 @@ const PricingPlans = ({ onSelectPlan, onLogoClick }) => {
           <div className="pricing-card base-card">
             <h2 className="plan-name">Staxiom Base</h2>
             <div className="plan-price">
-              <span className="price-amount">$500</span>
-              <span className="price-period">per tax filing</span>
+              <span className="price-amount">10%</span>
+              <span className="price-period">of total credits used</span>
             </div>
             <p className="plan-description">
               For start-ups who has less than five employees and has profit yet.
             </p>
             <ul className="plan-features">
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
+              <li>Basic R&D Calculation</li>
+              <li>R&D Credit report (to file)</li>
             </ul>
             <button onClick={handleBasePlan} className="plan-button base-button">
               Choose Base Plan
@@ -63,18 +62,17 @@ const PricingPlans = ({ onSelectPlan, onLogoClick }) => {
           <div className="pricing-card pro-card">
             <h2 className="plan-name">Staxiom Pro</h2>
             <div className="plan-price">
-              <span className="price-amount">20%</span>
-              <span className="price-period">total credits used</span>
+              <span className="price-amount">15%</span>
+              <span className="price-period">of total credits used</span>
             </div>
             <p className="plan-description">
               For a business who has more than five employees and made profit.
             </p>
             <ul className="plan-features">
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
+              <li>Assigned Account Manager</li>
+              <li>Advanced R&D Calculation</li>
+              <li>R&D Credit report (to file)</li>
+              <li>R&D Qualitative Report</li>
             </ul>
             <button onClick={handleProPlan} className="plan-button pro-button">
               Choose Staxiom Pro
